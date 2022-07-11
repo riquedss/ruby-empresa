@@ -1,4 +1,4 @@
-require './bd.rb'
+require '../database/bd.rb'
 
 class Funcionario
     attr_accessor(:id, :name, :last_name, :age, :salary, :address, :sector, :enrollment)
