@@ -1,7 +1,9 @@
 require '../database/bd.rb'
 
 class Funcionario < Bd
-  attr_accessor(:id, :name, :last_name, :age, :salary, :address, :sector, :enrollment) 
+  attr_accessor(:id, :name, :last_name, :age, :salary, :address, :sector, :enrollment)
+
+  STATUS = true #Variável que verifica se a instância é válida
 
   def initialize(params)
     @id = tabela_id(@@funcionarios)
@@ -11,7 +13,12 @@ class Funcionario < Bd
     @salary = params[:salary]
     @address = params[:sector]
     @enrollment = params[:enrollment]
+    @id_departamento = params[:id_departamento]
   end  
+
+  def status()
+    return STATUS
+  end
 
   def nome_completo()
     return `#{@name} #{@last_name}`
@@ -20,7 +27,7 @@ class Funcionario < Bd
   def numero_dependentes()
     numero_dependentes = 0
     @@dependentes.each do |dependente|
-      if dependente.id == self.id
+      if dependente.funcionario_id == self.id
           numero_dependentes += 1
       end
     end  
