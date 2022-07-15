@@ -13,16 +13,25 @@ class Funcionario < Bd
     @salary = params[:salary]
     @address = params[:sector]
     @enrollment = params[:enrollment]
-    @id_departamento = params[:id_departamento]
-  end  
+    @departament_id = params[:id_departament]
+  end 
 
   def status()
     return STATUS
   end
 
+  def update(params)
+    @name = params[:name]
+    @last_name = params[:last_name]
+    @age = params[:age]
+    @salary = params[:salary]
+    @address = params[:sector]
+    @enrollment = params[:enrollment]
+  end
+
   def nome_completo()
     return `#{@name} #{@last_name}`
-  end  
+  end 
 
   def numero_dependentes()
     numero_dependentes = 0
