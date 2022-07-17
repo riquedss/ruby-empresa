@@ -1,27 +1,29 @@
-require '../database/bd.rb'
-require '../model/departamento.rb'
-require '../model/dependente.rb'
-require '../model/funcionario.rb'
-require '../model/projetos.rb'
+require './database/bd.rb'
+require './model/departamento.rb'
+require './model/dependente.rb'
+require './model/funcionario.rb'
+require './model/projeto.rb'
 
 class FuncionariosController < Bd
-  def index()
+  def self.index()
     @funcionarios = @@funcionarios
+    return @funcionarios
   end
   
-  def show(id)
-    @funcionario = buscar(@@funcionarios, id) 
+  def self.show(id)
+    @funcionario = @@funcionarios[Bd.buscar(@@funcionarios, id)]
+    return @funcionario
   end
   
-  def create(funcionario_hash)
-    @funcionario = Funcionario.new(funcionario_hash)
-    adicionar(@@funcionario, @funcionario)   
+  def self.create(funcionario_hash)
+    funcionario = Funcionario.new(funcionario_hash)
+    Bd.adicionar(@@funcionarios, funcionario)   
   end
   
-  def update()
+  def self.update()
   end
   
-  def destroy()
+  def self.destroy(id)
     if remover(@@funcionarios, id)
         return true
     else
