@@ -1,12 +1,13 @@
-require '../database/bd.rb'
-require '../model/departamento.rb'
-require '../model/projeto.rb'
-require '../model/funcionario.rb'
-require '../model/projetos.rb'
+require './database/bd.rb'
+require './model/departamento.rb'
+require './model/projeto.rb'
+require './model/funcionario.rb'
+require './model/projeto.rb'
 
 class ProjetosController < Bd
   def index()
     @projetos = @@projetos
+    return @projetos
   end
   
   def show(id)
@@ -15,8 +16,7 @@ class ProjetosController < Bd
   
   def create(projeto_hash)
     @projeto = projeto.new(projeto_hash)
-    #validação na criação do projeto
-    adicionar(@@projeto, @projeto)   
+    Bd.adicionar(@@projetos, @projeto)   
   end
   
   def update()

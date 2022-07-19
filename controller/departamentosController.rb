@@ -1,30 +1,26 @@
-require '../database/bd.rb'
-require '../model/departamento.rb'
-require '../model/departamento.rb'
-require '../model/funcionario.rb'
-require '../model/projetos.rb'
+require './database/bd.rb'
+require './model/departamento.rb'
+require './model/departamento.rb'
+require './model/funcionario.rb'
+require './model/projeto.rb'
 
 class DepartamentosController < Bd
-  def index()
+  def self.index()
     @departamentos = @@departamentos
+    return @departamentos
   end
   
-  def show(id)
-    @departamento = buscar(@@departamentos, id) 
+  def self.show(id)
+    @departamento = @@departamentos[buscar(@@departamentos, id)]
+    return @departamento
   end
   
-  def create(departamento_hash)
-    @departamento = departamento.new(departamento_hash)
-    adicionar(@@departamento, @departamento)   
+  def self.create(departamento_hash)
+    departamento = Departamento.new(departamento_hash)
+    Bd.adicionar(@@departamentos, departamento)   
   end
   
   def update(id, departamento_hash)
-    @departamento = buscar(@@departamentos, id)
-    if @departamento.update(departamento)
-      return true
-    else
-      return false
-    end
   end
   
   def destroy(id)

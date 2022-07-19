@@ -1,21 +1,23 @@
-require '../database/bd.rb'
-require '../model/dependente.rb'
-require '../model/dependente.rb'
-require '../model/funcionario.rb'
-require '../model/projetos.rb'
+require './database/bd.rb'
+require './model/dependente.rb'
+require './model/dependente.rb'
+require './model/funcionario.rb'
+require './model/projeto.rb'
 
 class DependentesController < Bd
   def index()
     @dependentes = @@dependentes
+    return @dependentes
   end
   
   def show(id)
-    @dependente = buscar(@@dependentes, id) 
+    @dependente = @@dependentes[buscar(@@dependentes, id)]
+    return @dependente
   end
   
   def create(dependente_hash)
-    @dependente = dependente.new(dependente_hash)
-    adicionar(@@dependente, @dependente)   
+    dependente = dependente.new(dependente_hash)
+    Bd.adicionar(@@dependentes, dependente)   
   end
   
   def update()
