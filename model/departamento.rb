@@ -1,4 +1,4 @@
-require '../database/bd.rb'
+require './database/bd.rb'
 
 class Departamento < Bd
   attr_accessor(:id, :name, :manager)

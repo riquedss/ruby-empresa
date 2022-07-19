@@ -1,3 +1,5 @@
+require './database/bd.rb'
+
 class Projeto < Bd
   attr_accessor(:id, :name, :client, :kinship, :departament_id)
      
