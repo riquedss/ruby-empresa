@@ -16,14 +16,14 @@ class DependentesController < Bd
   end
   
   def self.create(dependente_hash)
-    dependente = dependente.new(dependente_hash)
+    dependente = Dependente.new(dependente_hash)
     Bd.adicionar(@@dependentes, dependente)   
   end
   
   def update()
   end
   
-  def self.destroy()
+  def self.destroy(id)
     if remover(@@dependentes, id)
         return true
     else

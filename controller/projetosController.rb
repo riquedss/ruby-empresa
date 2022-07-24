@@ -15,14 +15,14 @@ class ProjetosController < Bd
   end
   
   def self.create(projeto_hash)
-    @projeto = projeto.new(projeto_hash)
+    @projeto = Projeto.new(projeto_hash)
     Bd.adicionar(@@projetos, @projeto)   
   end
   
   def update()
   end
   
-  def self.destroy()
+  def self.destroy(id)
     if remover(@@projetos, id)
         return true
     else
