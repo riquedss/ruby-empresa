@@ -18,9 +18,10 @@ def mensagem_comandos()
   print "|                              COMANDOS                                    |\n"
   print "|                                                                          |\n"
   print "|(1) - create -> Para criar algum modelo                                   |\n"
-  print "|(2) - read -> Mostrar dados do Banco de dados                             |\n"
-  print "|(3) - update -> Para atualizar algum modelo                               |\n"
-  print "|(4) - delete -> Para deletetar algum modelo                               |\n"
+  print "|(2) - index -> Mostrar dados do Banco de dados                            |\n"
+  print "|(3) - show -> Mostrar um dado do Banco de dados                           |\n"
+  print "|(4) - update -> Para atualizar algum modelo                               |\n"
+  print "|(5) - delete -> Para deletetar algum modelo                               |\n"
   print "|__________________________________________________________________________|\n"
 end
 
@@ -41,7 +42,7 @@ def mensagem_lista_funcionarios(tabela)
     print "|                         lista de Funcionários                            |\n"
     tabela.each do |coluna|
     print "|id: #{coluna.id},                                                         |\n"
-    print "|nome: #{coluna.name},                                                     |\n"
+    print "|name: #{coluna.name},                                                     |\n"
     print "|Age: #{coluna.age},                                                       |\n"
     print "|Salary: #{coluna.salary},                                                 |\n"
     print "|Address: #{coluna.address},                                               |\n"
@@ -51,9 +52,43 @@ def mensagem_lista_funcionarios(tabela)
     print "|__________________________________________________________________________|\n"
 end
 
+def mensagem_lista_departamentos(tabela)
+    print " __________________________________________________________________________\n"
+    print "|                         lista de Departamentos                           |\n"
+    tabela.each do |coluna|
+    print "|id: #{coluna.id},                                                         |\n"
+    print "|name: #{coluna.name},                                                     |\n"
+    print "|manager: #{coluna.manager}                                                |\n"
+    end
+    print "|__________________________________________________________________________|\n"
+end
+
+def mensagem_lista_dependentes(tabela)
+    print " __________________________________________________________________________\n"
+    print "|                         lista de Dependentes                             |\n"
+    tabela.each do |coluna|
+    print "|id: #{coluna.id},                                                         |\n"
+    print "|name: #{coluna.name},                                                     |\n"
+    print "|age: #{coluna.age},                                                       |\n"
+    print "|kinship: #{coluna.kinship}                                                |\n"
+    end
+    print "|__________________________________________________________________________|\n"
+end
+
+def mensagem_lista_projetos(tabela)
+  print " ____________________________________________________________________________\n"
+  print "|                         lista de projetos                                  |\n"
+  tabela.each do |coluna|
+  print "|id: #{coluna.id},                                                           |\n"
+  print "|name: #{coluna.name},                                                       |\n"
+  print "|client: #{coluna.client},                                                   |\n"
+  print "|budget: #{coluna.budget}                                                    |\n"
+  end
+  print "|__________________________________________________________________________|\n"
+end
+
 def mensagem_erro(mensagem)
     print " __________________________________________________________________________\n"
     print `|Erro: #{mensagem};                                                        |\n`
     print "|__________________________________________________________________________|\n"
 end
-
