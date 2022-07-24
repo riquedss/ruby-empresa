@@ -1,4 +1,5 @@
 require './controller/funcionariosController'
+require './view/mensagemView.rb'
 
 def view_create_funcionario()
   print('Name: ')
@@ -27,32 +28,27 @@ def view_create_funcionario()
   } 
 end
 
-def delete_view_funcionario() 
-  print "id: "
-    if FuncionariosController.show(gets.chomp)
-      mensagem("Apagado")
-    else
-      mensagem("Funcionario encontrado")
-    end
-end
+def funcionario_routes()
+  mensagem_comandos()
+  print(">")
+  comando = gets.chomp.to_i
 
-def funcionario_routes(comando)
-  if comando == "/create/funcionario"
-      funcionario = view_create_funcionario()
-      FuncionariosController.create(funcionario)
-  elsif comando == "/index/funcionario"
-      funcionario = FuncionariosController.index()
-      mensagem_lista_funcionarios(funcionario)
-  elsif comando == "/show/funcionario"
+  if comando == 1
+    funcionario = view_create_funcionario()
+    FuncionariosController.create(funcionario)
+  elsif comando == 2
+    funcionario = FuncionariosController.index()
+    mensagem_lista_funcionarios(funcionario)
+  elsif comando == 3
     print "id: "
     funcionario = FuncionariosController.show(gets.chomp.to_i)
-    puts "teste show"
-    puts funcionario.class
     mensagem_lista_funcionarios([funcionario])
-  elsif comando == "/update/funcionario"
-  elsif comando == "/delete/funcionario"
-    delete_view_funcionario()  
+  elsif comando == 4
+    puts "Update"
+  elsif comando == 5
+    print "id: "
+    FuncionariosController.destroy(gets.chomp.to_i)  
   else
-    return false
+    mensagem_erro("Comando inválido")
   end
 end
