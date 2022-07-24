@@ -84,7 +84,7 @@ def mensagem_lista_projetos(tabela)
   print "|client: #{coluna.client},                                                   |\n"
   print "|budget: #{coluna.budget}                                                    |\n"
   end
-  print "|__________________________________________________________________________|\n"
+  print "|____________________________________________________________________________|\n"
 end
 
 def mensagem_erro(mensagem)
