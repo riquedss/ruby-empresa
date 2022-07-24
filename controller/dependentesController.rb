@@ -5,17 +5,17 @@ require './model/funcionario.rb'
 require './model/projeto.rb'
 
 class DependentesController < Bd
-  def index()
+  def self.index()
     @dependentes = @@dependentes
     return @dependentes
   end
   
-  def show(id)
+  def self.show(id)
     @dependente = @@dependentes[buscar(@@dependentes, id)]
     return @dependente
   end
   
-  def create(dependente_hash)
+  def self.create(dependente_hash)
     dependente = dependente.new(dependente_hash)
     Bd.adicionar(@@dependentes, dependente)   
   end
@@ -23,7 +23,7 @@ class DependentesController < Bd
   def update()
   end
   
-  def destroy()
+  def self.destroy()
     if remover(@@dependentes, id)
         return true
     else

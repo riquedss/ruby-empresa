@@ -23,7 +23,7 @@ class DepartamentosController < Bd
   def update(id, departamento_hash)
   end
   
-  def destroy(id)
+  def self.destroy(id)
     if remover(@@departamentos, id)
         return true
     else

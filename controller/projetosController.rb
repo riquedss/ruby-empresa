@@ -5,16 +5,16 @@ require './model/funcionario.rb'
 require './model/projeto.rb'
 
 class ProjetosController < Bd
-  def index()
+  def self.index()
     @projetos = @@projetos
     return @projetos
   end
   
-  def show(id)
+  def self.show(id)
     @projeto = buscar(@@projetos, id) 
   end
   
-  def create(projeto_hash)
+  def self.create(projeto_hash)
     @projeto = projeto.new(projeto_hash)
     Bd.adicionar(@@projetos, @projeto)   
   end
@@ -22,7 +22,7 @@ class ProjetosController < Bd
   def update()
   end
   
-  def destroy()
+  def self.destroy()
     if remover(@@projetos, id)
         return true
     else
