@@ -6,7 +6,7 @@ class Projeto < Bd
   STATUS = true
   
   def initialize(params)
-    @id = tabela_id(@@Projetos)
+    @id = Bd.tabela_id(@@Projetos)
     @name = params[:name]
     @client = params[:client]
     @budget = params[:budget]

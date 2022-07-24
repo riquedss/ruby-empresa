@@ -6,7 +6,7 @@ class Departamento < Bd
   STATUS = true   
 
   def initialize(params)
-    @id = tabela_id(@@funcionarios)
+    @id = Bd.tabela_id(@@funcionarios)
     @name = params[:name]
     @manager = params[:maneger]
   end

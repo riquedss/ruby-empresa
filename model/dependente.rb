@@ -6,7 +6,7 @@ class Dependente < Bd
   STATUS = true
 
   def initialize(params)
-    @id = tabela_id(@@Departamento)
+    @id = Bd.tabela_id(@@Departamento)
     @name = params[:name]
     @age = params[:age]
     @kinship = params[:kinship]
